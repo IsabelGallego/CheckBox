@@ -51,7 +51,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                       maxLength: 30,
                       decoration: InputDecoration(
-                        prefixIcon: const Icon(Icons.lock),
                         border: const OutlineInputBorder(),
                         suffixIcon: IconButton(
                           onPressed: () {
@@ -60,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                             Clipboard.setData(passwordGenerated);
 
                             const snackBar =
-                                SnackBar(content: Text('✓ Password copied'));
+                                SnackBar(content: Text('✓ Contraseña copiada'));
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(snackBar);
                           },
@@ -75,7 +74,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: const EdgeInsets.all(7.0),
                 child: CheckboxListTile(
-                    title: const Text('Mayusculas'),
+                    title: const Text('Mayúsculas'),
                     // checkColor: Colors.black,
                     activeColor: Colors.blue,
                     value: checkbox,
@@ -94,7 +93,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: const EdgeInsets.all(7.0),
                 child: CheckboxListTile(
-                    title: const Text('Minusculas'),
+                    title: const Text('Minúsculas'),
                     // checkColor: Colors.black,
                     activeColor: Colors.blue,
                     value: checkbox1,
@@ -105,6 +104,7 @@ class _HomePageState extends State<HomePage> {
                           checkbox = false;
                           checkbox2 = false;
                           checkbox3 = false;
+                          checkbox4 = false;
                         }
                       });
                     }),
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: const EdgeInsets.all(7.0),
                 child: CheckboxListTile(
-                    title: const Text('Numeros'),
+                    title: const Text('Números'),
                     // checkColor: Colors.black,
                     activeColor: Colors.blue,
                     value: checkbox2,
@@ -131,7 +131,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: const EdgeInsets.all(7.0),
                 child: CheckboxListTile(
-                    title: const Text('Mayusculas, minusculas y numeros'),
+                    title: const Text('Mayúsculas, minúsculas y números'),
                     // checkColor: Colors.black,
                     activeColor: Colors.blue,
                     value: checkbox3,
@@ -142,6 +142,7 @@ class _HomePageState extends State<HomePage> {
                           checkbox = false;
                           checkbox1 = false;
                           checkbox2 = false;
+                          checkbox4 = false;
                         }
                       });
                     }),
@@ -160,6 +161,8 @@ class _HomePageState extends State<HomePage> {
                           checkbox = false;
                           checkbox1 = false;
                           checkbox2 = false;
+                          checkbox3 = false;
+
                         }
                       });
                     }),
@@ -207,10 +210,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void onTrigger() {
-    if (checkbox3 && checkbox4 == true) {
-      final password = generarMayusYMinus();
-      controller.text = password;
-    } else if (checkbox == true) {
+    if (checkbox == true) {
       final password = generarMayusculas();
       controller.text = password;
     } else if (checkbox1 == true) {
